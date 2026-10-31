@@ -1,0 +1,39 @@
+# Dependencies and local build/test output
+node_modules/
+build/
+out/
+qa/
+runtime/
+downloads/
+artifacts/
+__pycache__/
+*.py[cod]
+*.log
+.DS_Store
+*.app/
+*.dmg
+*.zip
+*.pkg
+*.dSYM/
+# Media is generated locally or supplied separately with the user's own rights.
+assets/pet/
+# Never publish runtime account data, local preferences, credentials or backups.
+.env
+.env.*
+!.env.example
+.claude/
+.codex/
+*.pem
+*.key
+quota.json
+quota-sequence.json
+settings.json
+config.json
+state.json
+bridge-status.json
+original-statusline.json
+notification-ledger.json
+public-updates.json
+companion-state.json
+*.backup
+*.bak

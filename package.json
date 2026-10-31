@@ -1,0 +1,28 @@
+{
+  "name": "claude-chan-pet-macos",
+  "version": "0.1.0-macos.1",
+  "private": true,
+  "description": "Local macOS companion adapted from Mushan08/claude-chan-pet; no credential access or model API calls.",
+  "type": "module",
+  "main": "src/main.js",
+  "license": "MIT",
+  "author": "MushanLuo (upstream); local macOS contributors",
+  "engines": { "node": ">=22.12.0" },
+  "os": ["darwin"],
+  "cpu": ["arm64"],
+  "scripts": {
+    "assets": "python3 scripts/generate-placeholder.py",
+    "prestart": "npm run assets",
+    "start": "electron .",
+    "runtime:install": "node node_modules/electron/install.js",
+    "build:mac": "python3 macos/package-macos.py",
+    "build:launcher": "python3 macos/build-launcher.py",
+    "test": "npm run test:js && npm run test:python",
+    "test:js": "node --test tests/*.test.mjs",
+    "test:python": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "test:bridge": "python3 -m unittest discover -s tests -p 'test_*.py'",
+    "test:geometry": "npm run build:launcher && build/ClaudePetLauncher --test-geometry",
+    "test:launcher": "zsh macos/test-launcher.sh"
+  },
+  "devDependencies": { "electron": "45.1.0" }
+}

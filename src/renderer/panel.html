@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+    <title>Claude 娘 · 陪伴面板</title>
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body data-mode="full">
+    <header class="masthead">
+      <img class="avatar" src="../../assets/pet/face-10.png" alt="" />
+      <div class="heading-copy">
+        <h1>Claude 娘</h1>
+        <p>桌面上的一点陪伴</p>
+      </div>
+      <span id="version" class="version"></span>
+      <button type="button" id="restore-full-button" class="restore-button" data-mode-value="full">完整面板</button>
+    </header>
+    <nav class="display-modes" aria-label="面板显示方式">
+      <button type="button" data-mode-value="full" aria-pressed="true">完整</button>
+      <button type="button" data-mode-value="compact" aria-pressed="false">胶囊</button>
+      <button type="button" data-mode-value="minimal" aria-pressed="false">极简</button>
+    </nav>
+
+    <main>
+      <section class="companion" aria-labelledby="companion-title">
+        <div class="section-heading">
+          <h2 id="companion-title">陪伴状态</h2>
+          <span id="runtime-badge" class="badge good">本地伴随</span>
+        </div>
+        <p id="runtime-copy" class="subtle">普通 Chat 的工作状态尚未连接。</p>
+        <div class="quick-actions">
+          <button type="button" id="whisper-button" class="primary">说一句</button>
+          <button type="button" id="reset-button" class="secondary">回到初始位置</button>
+        </div>
+      </section>
+
+      <section class="card quota-card" aria-labelledby="quota-title">
+        <div class="section-heading">
+          <h2 id="quota-title">账户额度</h2>
+          <span id="quota-badge" class="badge">未连接</span>
+        </div>
+        <p id="quota-explanation" class="subtle">尚未接入账户用量；不会读取登录令牌或主动调用模型。</p>
+        <div class="quota-windows">
+          <div class="quota-window" id="five-hour-card">
+            <h3>5 小时窗口</h3>
+            <p class="quota-value"><span id="five-hour-value">—</span><span id="five-hour-unit" class="quota-unit"></span></p>
+            <progress id="five-hour-progress" max="100" value="0" aria-label="5 小时窗口剩余额度" hidden></progress>
+            <p id="five-hour-reset" class="quota-caption">暂无数据</p>
+          </div>
+          <div class="quota-window" id="seven-day-card">
+            <h3>7 天窗口</h3>
+            <p class="quota-value"><span id="seven-day-value">—</span><span id="seven-day-unit" class="quota-unit"></span></p>
+            <progress id="seven-day-progress" max="100" value="0" aria-label="7 天窗口剩余额度" hidden></progress>
+            <p id="seven-day-reset" class="quota-caption">暂无数据</p>
+          </div>
+        </div>
+        <dl class="quota-meta">
+          <div><dt>来源</dt><dd id="quota-source">尚未连接</dd></div>
+          <div><dt>更新于</dt><dd id="quota-updated">尚无采样</dd></div>
+        </dl>
+      </section>
+
+      <section class="card settings-card" aria-labelledby="settings-title">
+        <div class="section-heading"><h2 id="settings-title">陪伴偏好</h2><span id="save-state" class="save-state" aria-live="polite"></span></div>
+        <fieldset id="settings-controls">
+          <legend class="visually-hidden">桌宠本地设置</legend>
+          <label class="setting-row" for="pet-visible">
+            <span><strong>显示人物</strong><small>收起人物后，仍可使用陪伴面板</small></span>
+            <input id="pet-visible" type="checkbox" data-setting="petVisible" checked />
+          </label>
+          <label class="setting-row" for="position-locked">
+            <span><strong>固定位置</strong><small>避免不小心拖动她</small></span>
+            <input id="position-locked" type="checkbox" data-setting="positionLocked" />
+          </label>
+          <label class="setting-row" for="animations-enabled">
+            <span><strong>人物动画</strong><small>自动动作与呼吸效果</small></span>
+            <input id="animations-enabled" type="checkbox" data-setting="animationsEnabled" checked />
+          </label>
+          <label class="setting-row" for="whisper-enabled">
+            <span><strong>碎碎念</strong><small>从本地台词中挑一句</small></span>
+            <input id="whisper-enabled" type="checkbox" data-setting="whisperEnabled" checked />
+          </label>
+          <label class="setting-row" for="wander-enabled">
+            <span><strong>偶尔走动</strong><small>让她在桌面上散散步</small></span>
+            <input id="wander-enabled" type="checkbox" data-setting="wanderEnabled" />
+          </label>
+          <label class="setting-row" for="fullscreen-pause">
+            <span><strong>全屏时休息</strong><small>全屏期间收起桌宠，减少动画消耗</small></span>
+            <input id="fullscreen-pause" type="checkbox" data-setting="fullscreenPause" checked />
+          </label>
+          <label class="setting-row" for="reset-sound-enabled">
+            <span><strong>额度重置提示音</strong><small>仅用于确认的新重置；首次与重复消息静音</small></span>
+            <input id="reset-sound-enabled" type="checkbox" data-setting="resetSoundEnabled" />
+          </label>
+          <label class="setting-row" for="public-updates-enabled">
+            <span><strong>检查公开 Code 更新</strong><small>每 6 小时检查一次；功能更新静默显示</small></span>
+            <input id="public-updates-enabled" type="checkbox" data-setting="publicUpdatesEnabled" checked />
+          </label>
+          <div class="height-setting">
+            <label for="pet-height"><strong>人物大小</strong><output id="pet-height-value" for="pet-height">233 px</output></label>
+            <input id="pet-height" type="range" data-setting="petHeight" min="160" max="360" step="1" value="233" />
+            <div class="range-labels" aria-hidden="true"><span>小巧</span><span>醒目</span></div>
+          </div>
+        </fieldset>
+      </section>
+
+      <section class="card notices-card" aria-labelledby="notices-title">
+        <div class="section-heading"><h2 id="notices-title">消息</h2><span class="subtle small">功能更新静默显示</span></div>
+        <p id="notices-empty" class="empty-state">暂时没有新消息。</p>
+        <ul id="notices-list" class="notices-list"></ul>
+        <div class="public-updates">
+          <p id="public-update-state" class="subtle small">Claude Code 官方更新尚未检查。</p>
+          <div class="updates-actions">
+            <button id="check-updates-button" type="button">检查 Code 更新</button>
+            <button id="desktop-updates-button" type="button">查看 Desktop 更新 ↗</button>
+          </div>
+        </div>
+      </section>
+      <p class="footnote">普通 Chat 是伴随模式；额度缺失时不会显示估算值。</p>
+    </main>
+    <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+    <script type="module" src="panel.js"></script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'" />
+    <title>Claude 娘 · 额度小窗</title>
+    <link rel="stylesheet" href="quota-popup.css" />
+  </head>
+  <body>
+    <main class="popup" aria-labelledby="popup-title">
+      <header>
+        <h1 id="popup-title">账户额度</h1>
+        <span id="quota-badge" class="badge">等待数据</span>
+        <div class="actions">
+          <button type="button" id="settings-button" title="打开完整设置">设置</button>
+          <button type="button" id="hide-button" class="hide-button" title="收起额度小窗" aria-label="收起额度小窗">×</button>
+        </div>
+      </header>
+      <div class="quota-grid">
+        <section id="session-card" class="quota-card" aria-labelledby="session-title">
+          <h2 id="session-title">当前会话</h2>
+          <p class="value-row"><span id="session-value" class="value">—</span><span id="session-unit" class="unit"></span></p>
+          <p id="session-reset" class="reset">暂无数据</p>
+        </section>
+        <section id="week-card" class="quota-card" aria-labelledby="week-title">
+          <h2 id="week-title">本周</h2>
+          <p class="value-row"><span id="week-value" class="value">—</span><span id="week-unit" class="unit"></span></p>
+          <p id="week-reset" class="reset">暂无数据</p>
+        </section>
+      </div>
+      <div class="snapshot-meta">
+        <p id="quota-source">尚未连接账户额度</p>
+        <p id="quota-time">尚无采样</p>
+      </div>
+      <p id="quota-note" class="note" role="status" aria-live="polite">没有可用采样，不估算余额。</p>
+    </main>
+    <script type="module" src="quota-popup.js"></script>
+  </body>
+</html>
