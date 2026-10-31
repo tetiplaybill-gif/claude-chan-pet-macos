@@ -76,7 +76,7 @@ def package_app():
             "electron_tree_sha256": ELECTRON_TREE_SHA256,
             "architecture": "arm64",
             "mode": "local source build; no credentials, model API, or automatic Code hooks",
-            "artwork": "Original geometric placeholder or user-supplied local assets; see NOTICE.md and docs/ASSETS.md",
+            "artwork": "Bundled upstream PNG/WebM runtime pack; source and rights notes in NOTICE.md, docs/ASSETS.md and docs/ASSET-INVENTORY.json",
             "distribution": "Local development build, ad-hoc signed, not notarized; no bundled user data",
         }
         (resources / "LOCAL-PROVENANCE.json").write_text(json.dumps(provenance, indent=2) + "\n")

@@ -1,21 +1,36 @@
 # 素材说明
 
-公开仓库保留代码，但不分发上游人物图片、表情 PNG、WebM 动画或相关截图。上游媒体权利尚待确认；上游代码使用 MIT，不代表可以替不明确的媒体权利人授权。
+本公开版本包含来自 [Mushan08/claude-chan-pet](https://github.com/Mushan08/claude-chan-pet) 的人物图片与动画，作者署名保留为 **MushanLuo / Mushan08**，固定来源为提交 [`7573579a5a7ade4a853c38144f664b3abf11bbba`](https://github.com/Mushan08/claude-chan-pet/tree/7573579a5a7ade4a853c38144f664b3abf11bbba/assets/pet)。
 
-## 默认占位角色
+## 收录范围
+
+| 路径 | 数量 | 用途 |
+| --- | --- | --- |
+| `assets/pet/front.png`、`side.png`、`back.png` | 3 张 PNG | 人物立绘姿态 |
+| `assets/pet/face-01.png` 至 `face-10.png` | 10 张 PNG | 表情 |
+| `assets/pet/anims/` 中的 WebM | 5 个 | 动画片段 |
+| `assets/pet/manifest.json`、`assets/pet/anims/manifest.json` | 2 份 JSON | 图片与动画清单 |
+
+共 20 个文件。逐文件来源与校验信息见 [ASSET-INVENTORY.json](ASSET-INVENTORY.json)。不收录 `assets/source/` 源图、WebP、ICO 或截图，也不发布预构建 `.app` / DMG。
+
+上游图片清单把源图标记为 `sheet-threeview.png`，动画清单的来源标记为 `wechat-2026-10`。这些是上游记录的来源标记，源图和视频参考本身未收录。
+
+仓库保留上游 [MIT 许可全文](../LICENSE)；所核对的上游许可未单独排除这些媒体。原始用户提供设计稿及视频参考的独立权属尚未核实，不作独立权属担保，也不代表 Anthropic 的官方授权或认可。详见 [NOTICE](../NOTICE.md)。
+
+## 可选的原创几何回退
 
 ```sh
 npm run assets
 ```
 
-此命令运行 `scripts/generate-placeholder.py`，只用 Python 标准库在 `assets/pet/` 生成原创几何角色 PNG。角色由简单几何形状与表情组成，不仿制上游人物，也不生成原人物动作。生成器源码及其原创输出按 MIT 提供。
+此命令运行 `scripts/generate-placeholder.py`。检测到 `assets/pet/front.png` 时会保留现有素材包，不覆盖它；正常检出本仓库后因此继续使用已收录的人物与动画。
 
-`npm start` 和本地打包流程会准备这些占位素材，因此无需寻找其他人物包即可试用交互。生成的 `assets/pet/` 已被 Git 忽略，不作为仓库中的已授权第三方媒体重新分发。
+若要使用几何占位外观，可先把整个 `assets/pet/` 移到本地备份位置，再运行该命令。生成器只用 Python 标准库在空素材目录生成原创几何角色 PNG，不联网下载、不仿制上游人物，也不生成上游 WebM 动画。占位立绘为 192 × 256，表情为 64 × 64；生成器源码及其原创输出按 MIT 提供。
 
-## 自带有权使用的素材
+`npm start` 和本地打包流程会执行同样的素材检查。切换素材时请保留完整目录，包括对应动画清单；恢复备份后再次运行即可使用原包。
 
-如需更换外观，请只使用自己创作或取得相应许可的素材，并在本地保留作者、来源和许可记录。项目不会自动从上游或其他站点抓取素材。
+## 本地替换
 
-当前渲染器使用透明 PNG：`front.png`、`side.png`、`back.png` 以及 `face-NN.png` 表情文件；默认占位立绘为 192 × 256，表情为 64 × 64。具体命名与布局以 `scripts/generate-placeholder.py` 和 `src/renderer/pet.js` 为准。生成器发现已有 `front.png` 时会保留现有素材包而不覆盖，因此替换时请准备完整且匹配的本地素材。未准备视频片段时使用静态占位与本地交互，不会补齐上游完整动画。
+透明 PNG 的命名、表情布局和动画清单格式以现有素材及 `src/renderer/pet.js` 为准。替换为自己的外观时，请保存原素材备份和新素材的来源记录；不要混用不匹配的图片与动画清单。项目不会自动抓取其他素材。
 
-自带素材不能仅因放入本项目就改为 MIT。重新分发前应检查素材许可和形象权利，保留必要声明，并自行承担相应授权责任。
+自行加入的第三方素材仍保留其原有许可条款；本项目的 MIT 文件不会自动改变这些条款。

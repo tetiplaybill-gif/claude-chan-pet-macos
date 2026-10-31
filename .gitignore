@@ -15,8 +15,32 @@ __pycache__/
 *.zip
 *.pkg
 *.dSYM/
-# Media is generated locally or supplied separately with the user's own rights.
-assets/pet/
+# Publish only the pinned upstream runtime pack; keep other local media ignored.
+assets/*
+!assets/pet/
+assets/pet/*
+!assets/pet/anims/
+assets/pet/anims/*
+!assets/pet/anims/hug.webm
+!assets/pet/anims/love.webm
+!assets/pet/anims/manifest.json
+!assets/pet/anims/read.webm
+!assets/pet/anims/think.webm
+!assets/pet/anims/wave.webm
+!assets/pet/back.png
+!assets/pet/face-01.png
+!assets/pet/face-02.png
+!assets/pet/face-03.png
+!assets/pet/face-04.png
+!assets/pet/face-05.png
+!assets/pet/face-06.png
+!assets/pet/face-07.png
+!assets/pet/face-08.png
+!assets/pet/face-09.png
+!assets/pet/face-10.png
+!assets/pet/front.png
+!assets/pet/manifest.json
+!assets/pet/side.png
 # Never publish runtime account data, local preferences, credentials or backups.
 .env
 .env.*

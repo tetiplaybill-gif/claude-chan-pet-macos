@@ -1,0 +1,126 @@
+{
+  "upstream": "https://github.com/Mushan08/claude-chan-pet",
+  "revision": "7573579a5a7ade4a853c38144f664b3abf11bbba",
+  "files": [
+    {
+      "path": "assets/pet/anims/hug.webm",
+      "bytes": 1627470,
+      "sha256": "e2250ad8afe5558410293397c77281a6dbe46604cb5d71b485b8dda28ad30fd8",
+      "gitBlob": "62fc8722a8188e4ad469f1967bb932a9ce14ef96"
+    },
+    {
+      "path": "assets/pet/anims/love.webm",
+      "bytes": 1472158,
+      "sha256": "c3fef92360f474d9229e77e8097030102e5727217055a6837b10d51ffa056049",
+      "gitBlob": "16749aac892b81dcca2ec0117b220657df863434"
+    },
+    {
+      "path": "assets/pet/anims/manifest.json",
+      "bytes": 894,
+      "sha256": "05b21d72012c1aa0bc88945f66c16e43a10b0a28569db8e5f26bbe7307f6d081",
+      "gitBlob": "b3058df660e1c4d94439689ad8fdc5a1819e6889"
+    },
+    {
+      "path": "assets/pet/anims/read.webm",
+      "bytes": 1599516,
+      "sha256": "35573cc12f791beba56df24bb911b8bf20d76c2c8282fb34288887ce7a278d28",
+      "gitBlob": "76ae5a79e514e392fe24b55f350e338402185c99"
+    },
+    {
+      "path": "assets/pet/anims/think.webm",
+      "bytes": 1526291,
+      "sha256": "a8738df652a1b7ccd2530817856b38144cffec2f714b1818ec0f4a7e7aae62cc",
+      "gitBlob": "828dc4a6f874e26c2cf4112dbbe9e05831d5c345"
+    },
+    {
+      "path": "assets/pet/anims/wave.webm",
+      "bytes": 1605168,
+      "sha256": "a617832e8cf79f118ab65bf33c7bf958ed7cfd2bf1664b7ce40deafc6cb9806a",
+      "gitBlob": "8f8cea29de2b26142666ed3dfee0fbbfd1398777"
+    },
+    {
+      "path": "assets/pet/back.png",
+      "bytes": 282154,
+      "sha256": "1c0db4e16ffe44a77cc157fe2519199f366ff60f0d858c3086e0b27405b423fa",
+      "gitBlob": "e41066561f62cd7d24bdd5981694ccea418e70cb"
+    },
+    {
+      "path": "assets/pet/face-01.png",
+      "bytes": 32978,
+      "sha256": "ec3bb5467956b6fae18b60dc4d53df1047a1599bf7391322772e1593a48ff9e4",
+      "gitBlob": "ec0f8a172a06655c6a2fa65d31fc2782cc7f1b09"
+    },
+    {
+      "path": "assets/pet/face-02.png",
+      "bytes": 33440,
+      "sha256": "7f9a631c7ef24d9b7cd602a467d23d61513ba0b634346e98ce39f73893ffaf82",
+      "gitBlob": "05b74926b82f38003a8f95e94dc9db220f8a7a4c"
+    },
+    {
+      "path": "assets/pet/face-03.png",
+      "bytes": 33082,
+      "sha256": "da87ed88796e423d72ef10d40484bb2d117a0fd23e95af627da4f93a01bd8ab6",
+      "gitBlob": "bb1ad06a65f8645b5b6221365f76f4051fb2d08f"
+    },
+    {
+      "path": "assets/pet/face-04.png",
+      "bytes": 33090,
+      "sha256": "539f6f12738a4585ab9c08c15d462c5565edc0282b8b38ba87fa7db4535e410a",
+      "gitBlob": "1fdbf40c2b36aaa6eecd87e896b8e0eb9ae56a97"
+    },
+    {
+      "path": "assets/pet/face-05.png",
+      "bytes": 33076,
+      "sha256": "c3b208f73fae75ef6545f06c5dcb043d81fbb57798438d7f5cc89fd1c292c2fd",
+      "gitBlob": "fed63e9a52572874423d5b77b8f3dfa079876bd8"
+    },
+    {
+      "path": "assets/pet/face-06.png",
+      "bytes": 32416,
+      "sha256": "b7e4320dca39a1acd13e2a8c2a2a58f2dcfee306728a6ae21a5c87dbf938927b",
+      "gitBlob": "e5cc114ff81fcff2bbbf91f8120d89688bfcc90b"
+    },
+    {
+      "path": "assets/pet/face-07.png",
+      "bytes": 33564,
+      "sha256": "81094ea2b3a129ea2c120d13ec4c1a2ddff60168689f56e01c619be7569635d4",
+      "gitBlob": "9970b161140da3cf706da295f10695d8317c950a"
+    },
+    {
+      "path": "assets/pet/face-08.png",
+      "bytes": 32420,
+      "sha256": "e45812c26d598f255d1bc4926f8bf78f2d097bd339726ccebe21a6b435899392",
+      "gitBlob": "bd5ef507353e189e1f172d75e43b32a3b611b394"
+    },
+    {
+      "path": "assets/pet/face-09.png",
+      "bytes": 31440,
+      "sha256": "c3b69e6b881d8bf0139471ce98b784c7df78da40af41372da07aeca785cf279a",
+      "gitBlob": "13901690c3a04ae94a0ee988dd78433046dbb94a"
+    },
+    {
+      "path": "assets/pet/face-10.png",
+      "bytes": 27705,
+      "sha256": "0d5821f5565d369dd32686ae6383578f7bee3df99bda6dab536ede95794541d4",
+      "gitBlob": "0fd8be2de3c4fed9aaca773bba89e1e23b72af94"
+    },
+    {
+      "path": "assets/pet/front.png",
+      "bytes": 347398,
+      "sha256": "91f01ebb23b9aaee152bd904f6de79911c324e530dda294806fe0d329ca60b3b",
+      "gitBlob": "36f5c7d66c69700b39694ab01db86f4b12e3d166"
+    },
+    {
+      "path": "assets/pet/manifest.json",
+      "bytes": 2377,
+      "sha256": "1f49aa72aa450ca35522e2618e384599eea72a868e92e7067e54bd51ea2444ee",
+      "gitBlob": "7303b8ba9a8564d489f40f20e1b5de083394fa9a"
+    },
+    {
+      "path": "assets/pet/side.png",
+      "bytes": 278725,
+      "sha256": "84405119965b1f096a115751d5f215965430b08898ce3cfab19ff203b11ec7b0",
+      "gitBlob": "7884a03ae6125cfe387d702b79ea1c2736a41371"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 
 基于 [Mushan08/claude-chan-pet](https://github.com/Mushan08/claude-chan-pet)，上游作者 **MushanLuo / Mushan08**，基线提交为 [`7573579a5a7ade4a853c38144f664b3abf11bbba`](https://github.com/Mushan08/claude-chan-pet/tree/7573579a5a7ade4a853c38144f664b3abf11bbba)。本项目由社区维护，与 Anthropic 无隶属或官方认可关系。
 
-**此公开版本只提供代码和原创几何占位角色的生成器。** 上游人物图片、PNG、WebM、完整人物动作及其截图均不随仓库分发；其媒体权利尚待确认。运行时会在本地生成简单几何角色，外观不是上游 Claude 娘。参见 [素材说明](docs/ASSETS.md) 与 [NOTICE](NOTICE.md)。
+**此公开版本包含上游 Claude 娘人物图片与动画素材：13 张 PNG、5 个 WebM 和 2 份 JSON 清单。** 素材来自上述固定上游提交，保留 MushanLuo 的 MIT 许可证；原始用户提供设计稿的独立权属尚未核实。未收录 `assets/source/` 源图、WebP、ICO 或截图。原创几何角色生成器仍作为可选回退，不替换现有素材包。完整范围与来源见 [素材说明](docs/ASSETS.md) 与 [NOTICE](NOTICE.md)。
 
 ## 功能与边界
 
@@ -18,7 +18,7 @@
 
 ## 从源码运行
 
-当前仅提供源码，不提供预构建 DMG 或 `.app` 下载。
+当前提供源码与上述素材，不提供预构建 DMG 或 `.app` 下载。
 
 需要 Apple Silicon Mac、Node.js **22.12.0 或更新版本**与 npm、Python 3。打包和启动助手还需要 Xcode Command Line Tools 中的 `swiftc`、`codesign`。Electron 固定为 **45.1.0**，其官方平台基线是 **macOS Ventura 13 及以上**；本项目只在 **macOS 27 / arm64** 开发环境验证，尚未广泛测试其他系统，暂不支持本项目的 Intel 打包流程。[Electron 官方平台说明](https://github.com/electron/electron/blob/v45.1.0/README.md#platform-support)
 
@@ -30,7 +30,7 @@ npm run assets
 npm start
 ```
 
-`npm install` 安装 npm 依赖；首次使用 Electron 时可能下载其官方运行时。`npm run assets` 用 Python 标准库生成本地占位 PNG，不下载人物素材。`npm start` 也会先生成所需占位素材。[Electron 安装说明](https://www.electronjs.org/docs/latest/tutorial/installation)
+`npm install` 安装 npm 依赖；首次使用 Electron 时可能下载其官方运行时。`npm run assets` 检查现有素材包：发现 `front.png` 时直接保留，未发现时生成原创几何占位 PNG；它不下载人物素材。`npm start` 也会先执行这一步，正常检出仓库后使用随仓库提供的上游人物与动画。[Electron 安装说明](https://www.electronjs.org/docs/latest/tutorial/installation)
 
 ## 本地打包与安装
 
@@ -85,6 +85,6 @@ JavaScript 与 Python 测试覆盖额度解析和显示、点击与拖动、窗�
 
 A community macOS adaptation of [Mushan08/claude-chan-pet](https://github.com/Mushan08/claude-chan-pet), originally by MushanLuo / Mushan08. It is not affiliated with or endorsed by Anthropic.
 
-This source-only repository includes an original geometric placeholder generator, **not the upstream character artwork or animation media**. Build locally on Apple Silicon with Node.js 22.12.0+, Python 3 and Xcode Command Line Tools. Click the pet to toggle a following quota popup; drag to move; right-click for settings. Claude startup integration and the optional CLI status-line bridge require separate, explicit installation.
+This repository includes source code and **13 upstream character PNGs, 5 WebM animations, and 2 JSON manifests** from the pinned upstream commit. It does not include source artwork, WebP, ICO, screenshots, or prebuilt `.app` / DMG releases. The original geometric placeholder generator remains an optional fallback and preserves an existing asset pack. Build locally on Apple Silicon with Node.js 22.12.0+, Python 3 and Xcode Command Line Tools. Click the pet to toggle a following quota popup; drag to move; right-click for settings. Claude startup integration and the optional CLI status-line bridge require separate, explicit installation.
 
-Usage-page data is a manual snapshot, not a live balance. The app does not scrape authenticated pages, access credentials, install Claude hooks, or call model APIs. Code and the original generated placeholder are covered by [MIT](LICENSE); uncertain upstream media rights are not granted. See [NOTICE](NOTICE.md), [privacy](docs/PRIVACY.md), and [usage](docs/USAGE.md).
+Usage-page data is a manual snapshot, not a live balance. The app does not scrape authenticated pages, access credentials, install Claude hooks, or call model APIs. The upstream [MIT license](LICENSE) and attribution are retained; no separate media exclusion was found in that license. Independent ownership of the original user-supplied design artwork has not been verified. See [NOTICE](NOTICE.md), [assets](docs/ASSETS.md), [privacy](docs/PRIVACY.md), and [usage](docs/USAGE.md).
